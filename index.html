@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html ln="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Transport Bill generation </title>
+    <style>
+        #f1,
+        fieldset {
+            width: 50%;
+
+        }
+
+        #f2,
+        fieldset {
+            width: 50%;
+
+        }
+
+        #f3 fieldset {
+            width:78%;
+        }
+        .CompanyDetails {
+            text-align: center;
+
+        }
+
+        table,
+        tr,
+        th {
+            border: 1px solid rgb(24, 29, 33);
+            border-collapse: collapse;
+        }
+        .right {
+            position: absolute;
+            top: 0px;
+            margin: 7px;
+            width: 29%;
+            padding: 0px;
+            left: 1064px;
+        }
+
+        .navbar li {
+            display: inline-block;
+            top: 5px;
+            padding: 8px;
+            color: blueviolet;
+            font-size: 18px;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <!-- <div class="right">
+        <ul class="navbar" type="none">
+            <li><a href="http://192.168.43.29:5500/Project1/index.html">Home</a></li>
+            <li><a href="http://192.168.43.29:5500/Project1/AboutUs.html">About Us</a></li>
+            <li><a href="http://192.168.43.29:5500/Project1/services.html">Bill Service</a></li>
+            <li><a href="http://192.168.43.29:5500/Project1/trucktype.html">Truck Type</a></li>
+            <!-- <li><a href="#">FAQ</a></li> -->
+        <!-- </ul>
+    </div> --> 
+    <div id="f1">
+
+        <fieldset>
+            <legend>Party Details</legend>
+            <div id="Part1">
+                <input type="text" id="PartyName" value="" placeholder="Enter the PartyName">
+                <input type="email" id="PartyEmail" value="" placeholder="Enter Party Member Email"> <br><br>
+            </div>
+        </fieldset>
+    </div>
+
+
+    <br><br>
+    <div id="f2">
+        <fieldset>
+            <legend>Delivery Details :</legend>
+            <input type="text" id="Alocation" name="Access Location" placeholder="choose the access point">
+            <input type="text" id="Dlocation" name="Delivery Location"
+                placeholder="choose the Delivery location"><br><br>
+
+            <input type="text" id="Distance" name="Distance" placeholder="Enter the Distance in Km">
+
+
+            <input type="text" id="Quantity" name="Weight" placeholder="  Goods in ton "><br><br>
+            <select id="dropdown" onchange="ddropdown();">
+
+                <option>Truck Type</option>
+                <option>CONTAINER 20 FT</option>
+                <option>CONTAINER 32 FT SXL</option>
+                <option>20 FEET OPEN ALL SIDE</option>
+                <option>28-32 FEET OPEN-TRAILOR JCB ODC</option>
+                <option>Tata_1204</option>
+                <option>32 FEET OPEN-TRAILOR ODC</option>
+            </select>
+            <select id="deliverymode" onchange="ddeliverymode();">
+                    <option>Delivery Mode</option>
+                    <option>single</option>
+                    <option>Return</option>
+                </select>
+        </fieldset>
+    </div><br><br>
+    </form>
+    <div id="f3">
+        <fieldset>
+            <legend>
+                Bill Details
+            </legend>
+            <div class="CompanyDetails">
+                <h3>Sk Transport Service</h3>
+                <address>Datta mandir chowk karjunekhare road, plot 1,shop no 2,ground flour</address>
+                <P>Mob - 9284043773 ,9763232260</P>
+                <p>Registered No : T21169 </p>
+                <p><b>Invoice</b></p>
+            </div>
+
+            <div class="PartyDetails">
+                <h3>Party Name :<span id="Partyname2"></span> </h3>
+                <h3>Party Email :<span id="PartyEmail2"></span></h3>
+
+            </div>
+            <div class="DDetails">
+                <table>
+                     
+                        <tr>
+                            <th>Access Location</th>
+                            <th>Delivery Location </th>
+                            <th>Delivery Distance(km)  </th>
+                            <th>Goods Quantity(ton)</th>
+                            <th>Truck Type  </th>
+                            <th>single/Return</th>
+                            <th>Total (Rs)</th>
+                        </tr>
+                        <tr>
+                            <td><input type="text" id="Alocation2" ></td>
+                            <td><input type="text" id="Dlocation2"></td>
+                            <td><input type="text" id="Distance2"></td>
+                            <td><input type="text" id="Quantity2"></td>
+                            <td><input type="text" id="dropSelect"></td>
+                            <td><input type="text" id="truckdelivery"></td>
+                            <td><input type="text" id="total" ></td>
+                        </tr>
+                     
+
+
+                </table>
+            </div>
+
+
+
+        </fieldset>
+    </div>
+    <script>
+        var PartyName = "";
+        document.getElementById("PartyName").addEventListener("keyup", function () {
+            PartyName = document.getElementById("PartyName").value;
+            document.getElementById("Partyname2").innerHTML = PartyName;
+
+        });
+        var PartyEmail = "";
+        document.getElementById("PartyEmail").addEventListener("keyup", function () {
+            PartyEmail = document.getElementById("PartyEmail").value;
+            document.getElementById("PartyEmail2").innerHTML = PartyEmail;
+
+        });
+        var Alocation = "";
+        document.getElementById("Alocation").addEventListener("keyup", function () {
+            Alocation = document.getElementById("Alocation").value;
+            document.getElementById("Alocation2").value = Alocation;
+
+
+        });
+        var Dlocation = "";
+        document.getElementById("Dlocation").addEventListener("keyup", function () {
+            Dlocation = document.getElementById("Dlocation").value;
+            document.getElementById("Dlocation2").value= Dlocation;
+        });
+        var Distance = "";
+        document.getElementById("Distance").addEventListener("keyup", function () {
+            Distance = document.getElementById("Distance").value;
+            document.getElementById("Distance2").value = (Distance);
+        });
+        var amount1= "";
+        document.getElementById("Distance").addEventListener("keyup", function () {
+            amount1 = document.getElementById("Distance").value;
+            document.getElementById("total").value = (amount1);
+        });
+        var Quantity = "";
+        document.getElementById("Quantity").addEventListener("keyup", function () {
+            Quantity = document.getElementById("Quantity").value;
+            document.getElementById("Quantity2").value = Quantity;
+        });
+        var amount2= "";
+        document.getElementById("Quantity").addEventListener("keyup", function () {
+            amount2= document.getElementById("Quantity").value;
+            document.getElementById("total").value = (amount1*amount2*15);
+        });
+        var Mode = "";
+        document.getElementById("Mode").addEventListener("mouseup", function () {
+            Mode = document.getElementById("Mode").value;
+            document.getElementById("Mode2").value = Mode2;
+        });
+
+
+        // document.getElementById("Distance", "Quantity").addEventListener("keyup", function () {
+        //     Mode = document.getElementById("Distance", "Quantity").value;
+        //     document.getElementById("Total2").value = Total2;
+        // });
+        function ddropdown(){
+            var d=document.getElementById("dropdown");
+            var displaytext=d.options[d.selectedIndex].text;
+            document.getElementById("dropSelect").value=displaytext;
+
+        }
+        function ddeliverymode() {
+            var D=document.getElementById("deliverymode");
+            var textinput=D.options[D.selectedIndex].text;
+            document.getElementById("truckdelivery").value=textinput;
+        }
+        // function rent(){
+        //     var amount1=document.getElementById("Distance").value;
+        //     var amount2=document.getElementById("Quantity").value;
+        //     document.getElementById("total").value=
+        // }
+         
+        
+    </script>
+
+
+</body>
+
+
+</html>
